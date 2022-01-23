@@ -34,12 +34,12 @@ game.Players[Controller].Chatted:connect(function(Message)
         end
     end
 end)
-getgenv.loopcash() = false
+getgenv().loopcash = false
 game.Players[Controller].Chatted:connect(function(Message)
     if Message:sub(1, 14) == "!loopgivecash " then
         for i,Player in pairs(game.Players:GetPlayers()) do
-        getgenv.loopcash() = true
-	    while getgenv.loopcash() == true and wait(5) do
+        getgenv().loopcash = false = true
+	    while getgenv().loopcash = false == true and wait(5) do
             if string.lower(Player.Name):sub(1, string.len(Message:sub(15))) == string.lower(Message:sub(15)) then
                 plr = Player.Name
                 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Workspace[plr].HumanoidRootPart.CFrame
@@ -55,7 +55,7 @@ game.Players[Controller].Chatted:connect(function(Message)
         end
     end
 end)
-getgenv.loopcash() = false
+getgenv().loopcash = false = false
 game.Players[Controller].Chatted:connect(function(Message)
     if Message:sub(1, 18) == "!stoploopgivecash " then
         for i,Player in pairs(game.Players:GetPlayers()) do
@@ -67,6 +67,7 @@ game.Players[Controller].Chatted:connect(function(Message)
                 [2] = "All"
             }
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	    game.Players.LocalPlayer.Character.Humanoid.Health = 0
             end
         end
     end
